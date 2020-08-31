@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Admin inner</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<style type="text/css">
+		.section {
+			max-width: 500px;
+			width: 100%;
+			margin: 70px auto;
+		}
+		.big-section {
+			display: flex;
+		}
+		.big-section > div {
+			width: 50%;
+		
+		}
+		.row {
+	margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+		}
+	</style>
+	<script type="text/javascript">
+		function exit() {
+			function eraseCookie(name) {   
+    		document.cookie = name+'=; Max-Age=-99999999;';  
+			}
+			eraseCookie('user')
+			location.reload()
+		}
+	</script>
+</head>
+<body>
+	<div class="about p-2 bg-dark text-white">
+		<p>Куплено: <%= bought.length %></p>
+		<p>Всего пользователей: <%= users.length %></p>
+		<p>Всего курсов: <%= courses.length %></p>
+		<p onclick="exit()" class="btn btn-danger">Выход</p>
+	</div>
+	<div class="section">
+		<form action="/api/addCourse" method="POST">
+			<input type="text" name="name" class="form-control mt-2" placeholder="Имя" required="required">
+			<input type="text" name="url" class="form-control mt-2" placeholder="Ссылка" required="required">
+			<input type="text" name="des" class="form-control mt-2" placeholder="Описание" required="required">
+			<input type="text" name="cost" class="form-control mt-2" placeholder="Цена" required="required">
+			<input type="text" name="urlsFile" class="form-control mt-2"  placeholder="Файл" required="required">
+			<input type="hidden" name="nameAdmin" value=<%=name %>  >
+			<input type="hidden" name="passwordAdmin" value=<%=password %>>
+			<input type="submit" name="" class="btn btn-block btn-primary mt-2">
+		</form>
+	</div>
+	<div class="big-section">
+		<div class="courses">
+			<h1>Курсы</h1>
+			 <% for(var i=0; i<courses.length;i++) {%>
+			<div class="row bg-dark text-white">
+				<form method="POST" action="/api/deleteCourse">
+				<div class="text"><%= courses[i] %></div>
+				<input type="hidden" name="nameAdmin" value=<%=name %>  >
+				<input type="hidden" name="passwordAdmin" value=<%=password %>>
+				<input type="hidden" name="id" value=<%=courses[i]._id %>  >
+				<input type="submit" class="delete btn btn-danger" value="удалить" name="">
+				</form>
+			</div>
+			<%} %>
+		</div>
+		<div class="users">
+			<h1>Пользователи</h1>
+			 <% for(var i=0; i<users.length;i++) {%>
+			<div class="row bg-dark text-white">
+				<div class="text"><%= users[i] %></div>
+			</div>
+			<%} %>
+		</div>
+	</div>
+</body>
+</html>
