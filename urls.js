@@ -273,6 +273,19 @@ buy.save(function(err){
 
 });
 
+app.post("/api/geyb",middalware.urlencodedParser, function(req,res) {
+       models.Bought.find({userId:req.body.userId,first_param: 1}, function(err,buy) {
+       res.send(buy)
+    })
+})
+
+app.post("/api/geyc",middalware.urlencodedParser, function(req,res) {
+       models.Course.find({_id:req.body.id}, function(err,course) {
+       res.send(course)
+    })
+})
+
+
 app.post("/api/checkers",middalware.urlencodedParser,function(req,res) {
     models.Bought.findOne({userId:req.body.userId,courseId:req.body.courseId,first_param: 1}, function(err,buy) {
     
@@ -297,17 +310,10 @@ app.post("/api/checkersplus",middalware.urlencodedParser,function(req,res) {
     })
     })
 })
-app.post("/api/allcorromuser",middalware.urlencodedParser, function(req,res) {
-       models.Bought.find({userId:req.body.userId,first_param: 1}, function(err,buy) {
-       res.send(buy)
-    })
-})
 
-app.post("/api/allcorromuserS",middalware.urlencodedParser, function(req,res) {
-       models.Course.find({_id:req.body.id}, function(err,course) {
-       res.send(course)
-    })
-})
+/*
+
+*/
 }
 module.exports = urls
 
