@@ -1,0 +1,110 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+/* header */
+.header {
+	display: flex;
+	justify-content: space-between;
+
+}
+input[type=submit] {
+	cursor: pointer;
+}
+.navbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.logo-inner {
+	padding: 20px;
+}
+.logo-inner > h1 {
+	text-align: left;
+}
+
+.navbar > nav {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.navbar > nav > div {
+	text-transform: uppercase;
+	cursor: pointer;
+}
+.link > a {
+	color: #374858;
+	text-decoration: none;
+}
+/* footer */
+.footer {
+
+	height: 40px;
+	width: 100%;
+	background: black;
+	    position: fixed;
+    bottom: 0px;
+}
+/* main section */
+.home,.account {
+	padding: 40px;
+}
+.header {
+	    padding-left: 20px;
+    padding-right: 20px;
+}
+.logo-inner > h1 {
+	text-align: center;
+}
+/* adaptive */
+@media(max-width: 1150px) {
+	.navbar > nav {
+		flex-direction: column-reverse;
+	}
+.courses {
+	margin-top: 10px;
+}
+.firstsection {
+	margin-top: 20px !important;
+	margin-right: 0% !important;
+	width: 100% !important;
+}
+.profile {
+	padding: 20px;
+}
+.navigate {
+	display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.row {
+	    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.oneS {
+	width: 100% !important;
+	margin-right: 0% !important;
+}
+.TwoS {
+	width: 100% !important;
+	margin-left: 0% !important;
+}
+
+.secondsection {
+	margin-top: 20px !important;
+	margin-right: 0% !important;
+	width: 100% !important;
+}
+.logo-inner {
+	padding-left: 20px;
+}
+.navbar {
+	padding-top: 10px !important;
+}
+.header {
+	flex-direction: column;
+	align-items: center;
+}
+}
