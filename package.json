@@ -24,7 +24,8 @@
     "nodemailer": "^6.4.11",
     "nodemon": "^2.0.4",
     "qs": "^6.9.4",
-    "vue-router": "^3.4.3"
+    "vue-router": "^3.4.3",
+    "vue-wow": "^1.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-router": "^4.5.4"
