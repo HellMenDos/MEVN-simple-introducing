@@ -56,7 +56,7 @@ const bought = new Schema(
 const Bought = mongoose.model("bought", bought);
 
 
-mongoose.connect("mongodb+srv://FOUR:Kirill3399@cluster0.ekh0a.mongodb.net/pozdno?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true  }, function(err){
+mongoose.connect("DB", { useNewUrlParser: true, useUnifiedTopology: true  }, function(err){
     if(err) return console.log(err);
     app.listen(3000, function(){
         console.log("Сервер ожидает подключения...");
